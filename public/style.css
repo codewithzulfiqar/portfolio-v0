@@ -813,7 +813,7 @@ section {
 }
 
 .footer-highlight {
-    color: var(--accent);
+    color: var(--teal-primary);
     font-weight: 600;
 }
 
