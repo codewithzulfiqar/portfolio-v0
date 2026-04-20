@@ -812,6 +812,11 @@ section {
     color: var(--text-muted);
 }
 
+.footer-highlight {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 /* Animations */
 @keyframes fadeInUp {
     from {
