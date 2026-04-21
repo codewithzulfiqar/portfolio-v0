@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initSkillBars();
     initSmoothScroll();
+    initHeroTypewriter();
 });
 
 /* ===================================
@@ -237,27 +238,76 @@ function initSmoothScroll() {
 }
 
 /* ===================================
-   TYPING EFFECT (Optional Enhancement)
+   HERO TYPEWRITER ANIMATION
    =================================== */
-function initTypingEffect() {
-    const typingElement = document.querySelector('.hero-title');
-    if (!typingElement) return;
-    
-    const text = typingElement.textContent;
-    typingElement.textContent = '';
-    
-    let index = 0;
-    
-    function type() {
-        if (index < text.length) {
-            typingElement.textContent += text.charAt(index);
-            index++;
-            setTimeout(type, 100);
+function initHeroTypewriter() {
+    const greetingEl  = document.getElementById('typewriter-greeting');
+    const nameEl      = document.getElementById('typewriter-name');
+    const titleEl     = document.getElementById('typewriter-title');
+
+    if (!greetingEl || !nameEl || !titleEl) return;
+
+    const nameCursor   = nameEl.querySelector('.typewriter-cursor');
+    const titleCursor  = titleEl.querySelector('.typewriter-cursor');
+    const nameText     = nameEl.querySelector('.typewriter-text');
+    const titleText    = titleEl.querySelector('.typewriter-text');
+
+    const GREETING = "Hello, I'm";
+    const NAME     = "Zulfiqar Ali";
+    const TITLE    = "Frontend Developer";
+
+    // Helper: type characters one by one into a span
+    function typeInto(targetSpan, text, speed, onDone) {
+        let i = 0;
+        function tick() {
+            if (i < text.length) {
+                targetSpan.textContent += text.charAt(i);
+                i++;
+                setTimeout(tick, speed);
+            } else if (onDone) {
+                onDone();
+            }
         }
+        tick();
     }
-    
-    // Start typing after a delay
-    setTimeout(type, 500);
+
+    // Phase 1 — fade-slide greeting in
+    function phase1() {
+        greetingEl.textContent = GREETING;
+        greetingEl.classList.add('visible');
+        setTimeout(phase2, 600);
+    }
+
+    // Phase 2 — type "Zulfiqar Ali" with cursor
+    function phase2() {
+        nameCursor.classList.add('active');
+        typeInto(nameText, NAME, 85, () => {
+            // Pause, then hide cursor and start title
+            setTimeout(() => {
+                nameCursor.classList.remove('active');
+                nameCursor.classList.add('done');
+                setTimeout(phase3, 300);
+            }, 400);
+        });
+    }
+
+    // Phase 3 — type "Frontend Developer" with cursor
+    function phase3() {
+        titleCursor.classList.add('active');
+        typeInto(titleText, TITLE, 70, () => {
+            // Linger cursor then do final blink-off
+            setTimeout(() => {
+                titleCursor.style.animation = 'cursorBlink 0.75s step-end 3';
+                titleCursor.addEventListener('animationend', () => {
+                    titleCursor.classList.remove('active');
+                    titleCursor.classList.add('done');
+                }, { once: true });
+            }, 800);
+        });
+    }
+
+    // Kick off after a brief page-load pause
+    setTimeout(phase1, 400);
 }
 
 /* ===================================

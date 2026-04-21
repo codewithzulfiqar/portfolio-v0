@@ -272,7 +272,12 @@ body {
 }
 
 .hero-content {
-    animation: fadeInUp 0.8s ease forwards;
+    opacity: 0;
+    animation: heroContentReveal 0.01s 0.1s forwards;
+}
+
+@keyframes heroContentReveal {
+    to { opacity: 1; }
 }
 
 .hero-greeting {
@@ -281,6 +286,15 @@ body {
     color: var(--teal-primary);
     margin-bottom: 20px;
     letter-spacing: 1px;
+    min-height: 24px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.hero-greeting.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-name {
@@ -292,6 +306,10 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    min-height: clamp(50px, 10vw, 90px);
+    display: flex;
+    align-items: center;
+    gap: 2px;
 }
 
 .hero-title {
@@ -299,6 +317,51 @@ body {
     font-weight: 600;
     color: var(--text-muted);
     margin-bottom: 24px;
+    min-height: clamp(40px, 8vw, 72px);
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+/* Typewriter cursor */
+.typewriter-cursor {
+    display: inline-block;
+    width: 3px;
+    background: var(--teal-primary);
+    border-radius: 2px;
+    margin-left: 2px;
+    align-self: stretch;
+    box-shadow: 0 0 8px var(--teal-primary), 0 0 20px var(--teal-glow);
+    animation: cursorBlink 0.75s step-end infinite;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.typewriter-cursor.active {
+    opacity: 1;
+}
+
+.typewriter-cursor.done {
+    animation: none;
+    opacity: 0;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* Name char-by-char glow reveal */
+.hero-name .typewriter-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+}
+
+/* Title reveal */
+.hero-title .typewriter-text {
+    color: var(--text-muted);
 }
 
 .hero-description {
