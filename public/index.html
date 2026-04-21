@@ -23,6 +23,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -336,11 +337,142 @@
         </div>
     </section>
 
+    <!-- Client Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">04. Reviews</span>
+                <h2 class="section-title">Client Satisfaction</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4 class="reviewer-name">Ahmed Hassan</h4>
+                            <p class="reviewer-role">Founder, Digital Agency</p>
+                        </div>
+                        <div class="review-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Zulfiqar is an exceptional developer. He delivered our e-commerce platform ahead of schedule with outstanding attention to detail. Highly recommended!"
+                    </p>
+                    <div class="review-actions">
+                        <button class="reply-btn" onclick="toggleReplyForm(this)" aria-label="Reply to review">Reply</button>
+                    </div>
+                    <div class="reply-form" style="display: none;">
+                        <textarea class="reply-textarea" placeholder="Write your reply..."></textarea>
+                        <div class="reply-buttons">
+                            <button class="btn btn-small btn-primary" onclick="submitReply(this)">Send Reply</button>
+                            <button class="btn btn-small btn-secondary" onclick="toggleReplyForm(this.closest('.review-card').querySelector('.reply-btn'))">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="reply-display"></div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4 class="reviewer-name">Sarah Johnson</h4>
+                            <p class="reviewer-role">Project Manager, Tech Startup</p>
+                        </div>
+                        <div class="review-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Amazing work on our dashboard redesign! Zulfiqar not only coded it perfectly but also provided valuable UX suggestions. A true professional."
+                    </p>
+                    <div class="review-actions">
+                        <button class="reply-btn" onclick="toggleReplyForm(this)" aria-label="Reply to review">Reply</button>
+                    </div>
+                    <div class="reply-form" style="display: none;">
+                        <textarea class="reply-textarea" placeholder="Write your reply..."></textarea>
+                        <div class="reply-buttons">
+                            <button class="btn btn-small btn-primary" onclick="submitReply(this)">Send Reply</button>
+                            <button class="btn btn-small btn-secondary" onclick="toggleReplyForm(this.closest('.review-card').querySelector('.reply-btn'))">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="reply-display"></div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4 class="reviewer-name">Muhammad Khan</h4>
+                            <p class="reviewer-role">CEO, E-Commerce Business</p>
+                        </div>
+                        <div class="review-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Working with Zulfiqar was a pleasure. His 'vibe coding' approach resulted in a website that not only looks incredible but performs flawlessly."
+                    </p>
+                    <div class="review-actions">
+                        <button class="reply-btn" onclick="toggleReplyForm(this)" aria-label="Reply to review">Reply</button>
+                    </div>
+                    <div class="reply-form" style="display: none;">
+                        <textarea class="reply-textarea" placeholder="Write your reply..."></textarea>
+                        <div class="reply-buttons">
+                            <button class="btn btn-small btn-primary" onclick="submitReply(this)">Send Reply</button>
+                            <button class="btn btn-small btn-secondary" onclick="toggleReplyForm(this.closest('.review-card').querySelector('.reply-btn'))">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="reply-display"></div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <h4 class="reviewer-name">Fatima Malik</h4>
+                            <p class="reviewer-role">Design Director, Creative Studio</p>
+                        </div>
+                        <div class="review-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        "Zulfiqar's attention to detail and collaborative approach made our project a success. He's responsive, creative, and highly skilled."
+                    </p>
+                    <div class="review-actions">
+                        <button class="reply-btn" onclick="toggleReplyForm(this)" aria-label="Reply to review">Reply</button>
+                    </div>
+                    <div class="reply-form" style="display: none;">
+                        <textarea class="reply-textarea" placeholder="Write your reply..."></textarea>
+                        <div class="reply-buttons">
+                            <button class="btn btn-small btn-primary" onclick="submitReply(this)">Send Reply</button>
+                            <button class="btn btn-small btn-secondary" onclick="toggleReplyForm(this.closest('.review-card').querySelector('.reply-btn'))">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="reply-display"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">04. Contact</span>
+                <span class="section-tag">05. Contact</span>
                 <h2 class="section-title">Get In Touch</h2>
             </div>
             <div class="contact-content">
@@ -387,6 +519,9 @@
         <div class="container">
             <p class="footer-text">
                 Designed and Built by <span class="footer-highlight">Zulfiqar Ali</span>
+            </p>
+            <p class="footer-contact">
+                <a href="tel:+923123477418" class="footer-link">+92 312 347 7418</a>
             </p>
             <p class="footer-copyright">&copy; 2026 All rights reserved.</p>
         </div>
