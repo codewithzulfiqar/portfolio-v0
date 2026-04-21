@@ -325,23 +325,24 @@ body {
 
 /* Typewriter cursor */
 .typewriter-cursor {
-    display: inline-block;
+    display: none;
     width: 3px;
     background: var(--teal-primary);
     border-radius: 2px;
     margin-left: 2px;
     align-self: stretch;
     box-shadow: 0 0 8px var(--teal-primary), 0 0 20px var(--teal-glow);
-    animation: cursorBlink 0.75s step-end infinite;
     opacity: 0;
-    transition: opacity 0.2s ease;
 }
 
 .typewriter-cursor.active {
+    display: inline-block;
     opacity: 1;
+    animation: cursorBlink 0.75s step-end infinite;
 }
 
 .typewriter-cursor.done {
+    display: none;
     animation: none;
     opacity: 0;
 }

@@ -282,12 +282,10 @@ function initHeroTypewriter() {
     function phase2() {
         nameCursor.classList.add('active');
         typeInto(nameText, NAME, 85, () => {
-            // Pause, then hide cursor and start title
-            setTimeout(() => {
-                nameCursor.classList.remove('active');
-                nameCursor.classList.add('done');
-                setTimeout(phase3, 300);
-            }, 400);
+            // Immediately hide name cursor and move to title
+            nameCursor.classList.remove('active');
+            nameCursor.classList.add('done');
+            setTimeout(phase3, 200);
         });
     }
 
@@ -295,14 +293,11 @@ function initHeroTypewriter() {
     function phase3() {
         titleCursor.classList.add('active');
         typeInto(titleText, TITLE, 70, () => {
-            // Linger cursor then do final blink-off
+            // Hide title cursor when done
             setTimeout(() => {
-                titleCursor.style.animation = 'cursorBlink 0.75s step-end 3';
-                titleCursor.addEventListener('animationend', () => {
-                    titleCursor.classList.remove('active');
-                    titleCursor.classList.add('done');
-                }, { once: true });
-            }, 800);
+                titleCursor.classList.remove('active');
+                titleCursor.classList.add('done');
+            }, 600);
         });
     }
 
