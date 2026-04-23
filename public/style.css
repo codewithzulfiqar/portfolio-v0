@@ -161,6 +161,35 @@ body {
     color: var(--bg-primary);
 }
 
+.btn-resume {
+    background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
+    color: var(--bg-primary);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-resume::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--teal-light), var(--teal-primary));
+    transition: left var(--transition-normal);
+    z-index: -1;
+}
+
+.btn-resume:hover::before {
+    left: 0;
+}
+
+.btn-resume:hover {
+    box-shadow: 0 0 40px rgba(20, 184, 166, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
 .btn-large {
     padding: 18px 48px;
     font-size: 16px;
@@ -914,7 +943,71 @@ section {
     font-style: italic;
 }
 
+/* Partners Section */
+.partners {
+    padding: var(--section-padding) 0;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.08) 0%, transparent 100%);
+}
 
+.partners-marquee {
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px 0;
+    mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 60px;
+    animation: marquee 30s linear infinite;
+    width: fit-content;
+    padding: 0 60px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 30px));
+    }
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 16px;
+}
+
+.partner-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+    padding: 12px 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: linear-gradient(135deg, transparent 0%, rgba(20, 184, 166, 0.1) 100%);
+    transition: all var(--transition-normal);
+}
+
+.partner-name:hover {
+    border-color: var(--teal-primary);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(20, 184, 166, 0.05) 100%);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.2);
+    transform: translateY(-2px);
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
 
 /* Footer */
 .footer {
