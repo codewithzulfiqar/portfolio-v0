@@ -161,35 +161,6 @@ body {
     color: var(--bg-primary);
 }
 
-.btn-resume {
-    background: linear-gradient(135deg, var(--teal-primary), var(--teal-light));
-    color: var(--bg-primary);
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-resume::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--teal-light), var(--teal-primary));
-    transition: left var(--transition-normal);
-    z-index: -1;
-}
-
-.btn-resume:hover::before {
-    left: 0;
-}
-
-.btn-resume:hover {
-    box-shadow: 0 0 40px rgba(20, 184, 166, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
-
 .btn-large {
     padding: 18px 48px;
     font-size: 16px;
